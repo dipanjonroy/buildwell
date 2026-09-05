@@ -4,10 +4,7 @@ import { GoCheckCircle } from "react-icons/go";
 
 type ServiceType = {
   service: {
-    img: {
-      src: string;
-      alt: string;
-    };
+    img: string;
     heading: string;
     text: string;
     points: string[];
@@ -27,8 +24,8 @@ export default function ServiceCard({ service, reverse }: ServiceType) {
           className="relative w-full lg:w-1/2 h-[clamp(18rem,75vw,28rem)] sm:h-[clamp(20rem,55vw,32rem)] lg:h-[clamp(24rem,34vw,40rem)] rounded-2xl overflow-hidden"
         >
           <Image
-            src={service.img.src}
-            alt={service.img.alt}
+            src={service.img}
+            alt={service.heading}
             fill
             sizes="(max-width:768px) 100vw, 50vw"
             className="object-cover"

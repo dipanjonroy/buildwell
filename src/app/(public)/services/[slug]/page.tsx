@@ -1,4 +1,4 @@
-import { services } from "@/components/sections/ServicesSection/Services";
+import { services } from "@/libs/servicesData";
 import BookingButton from "@/components/ui/buttons/BookingButton";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -21,7 +21,7 @@ export async function generateMetadata({
     title: service?.heading,
     description: service?.text,
     openGraph: {
-      images: [service?.img?.src],
+      images: [service?.img],
     },
   };
 }
@@ -54,8 +54,8 @@ export default async function page({
 
           <div className="relative w-full h-180 rounded-2xl overflow-hidden">
             <Image
-              src={service.img.src}
-              alt={service.img.alt}
+              src={service.img}
+              alt={service.heading}
               fill
               sizes="100vw"
               className="object-cover"
