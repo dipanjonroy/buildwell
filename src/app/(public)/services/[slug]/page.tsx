@@ -2,7 +2,8 @@ import { services } from "@/libs/servicesData";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import HeroSection from "@/components/sections/HeroSection/SingleServiceHero";
+import HeroSection from "@/components/sections/SingleService/SingleServiceHero";
+import DetailsSection from "@/components/sections/SingleService/ServiceDetails";
 
 export async function generateMetadata({
   params,
@@ -48,6 +49,12 @@ export default async function page({
         title={service.title}
         text={service.text}
         img={service.img}
+      />
+
+      <DetailsSection
+        overview={service.overview}
+        quote={service.quote}
+        points={service.points}
       />
     </>
   );

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import HeroAnimation from "@/components/animations/HeroAnimation";
-import BookingButton from "../../../ui/buttons/BookingButton";
+import BookingButton from "@/components/ui/buttons/BookingButton";
 
 export default function index() {
   const heroHeading =

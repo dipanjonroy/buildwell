@@ -1,4 +1,15 @@
-export const services = [
+export type ServiceType = {
+  category: string;
+  img: string;
+  title: string;
+  text: string;
+  overview: string[];
+  quote: string;
+  points: string[];
+  url: string;
+};
+
+export const services: ServiceType[] = [
   {
     category: "residential",
     img: "/homepage/residential-service.jpg",
