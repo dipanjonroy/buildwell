@@ -1,25 +1,17 @@
+import { ProjectType } from "@/libs/projectData";
 import Image from "next/image";
 import Link from "next/link";
 import { GoArrowRight } from "react-icons/go";
 
-type ProjectDetails = {
-  img: {
-    src: string;
-    alt: string;
-  };
-  title: string;
-  text: string;
-  url: string;
-};
 
 type ProjectCardType = {
-  details: ProjectDetails;
+  details: ProjectType;
   featured: boolean;
 };
 
 export default function ProjectCard({ details, featured }: ProjectCardType) {
   return (
-    <Link href={details.url} className="block group">
+    <Link href={`/projects/${details.slug}`} className="block group">
       <div className="w-full aspect-3/2 relative rounded-xl overflow-hidden">
         {/* Text */}
         <div className="absolute inset-x-4 bottom-4 z-10 rounded-xl border border-white bg-white/20 p-4 backdrop-blur-sm lg:inset-x-6 lg:bottom-6 lg:p-6">
@@ -39,7 +31,7 @@ export default function ProjectCard({ details, featured }: ProjectCardType) {
               <p
                 className={`base-para mt-2 leading-tight ${featured ? "hidden xl:block" : "hidden"}`}
               >
-                {details.text}
+                {details.shortDesc}
               </p>
             </div>
 
@@ -53,8 +45,8 @@ export default function ProjectCard({ details, featured }: ProjectCardType) {
         {/* image */}
         <div className="w-full h-full absolute inset-0 trandition-transform group-hover:scale-120 duration-300 ease-in-out">
           <Image
-            src={details?.img.src}
-            alt={details?.img.alt}
+            src={details?.img}
+            alt={details?.title}
             fill
             sizes="(max-width:768px) 100vw, 50vw"
             className="object-cover"

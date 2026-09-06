@@ -1,6 +1,6 @@
 import ProjectCard from "./ProjectCard";
 
-
+import { projectsData } from "@/libs/projectData";
 
 export default function Projects() {
   return (
