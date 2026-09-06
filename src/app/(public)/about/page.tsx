@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import HeroSection from "@/components/sections/HeroSection";
+import HeroSection from "@/components/sections/HeroSection/CommonHero";
 import AboutSection from "@/components/sections/AboutSection";
 import MissionVisionSection from "@/components/sections/MissionVisionSection";
 

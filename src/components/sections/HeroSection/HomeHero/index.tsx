@@ -1,6 +1,6 @@
 import Image from "next/image";
 import HeroAnimation from "@/components/animations/HeroAnimation";
-import BookingButton from "../../ui/buttons/BookingButton";
+import BookingButton from "../../../ui/buttons/BookingButton";
 
 export default function index() {
   const heroHeading =
@@ -57,7 +57,7 @@ export default function index() {
 
                 {/* CTA */}
                 <div className="hero-cta">
-                  <BookingButton/>
+                  <BookingButton />
                 </div>
               </div>
             </div>
