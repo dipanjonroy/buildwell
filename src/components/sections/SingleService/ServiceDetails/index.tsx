@@ -1,17 +1,20 @@
 import SectionHeading from "@/components/ui/SectionHeading";
 import { GoCheckCircle } from "react-icons/go";
 import ServicesTab from "./ServicesTab";
+import RelatedProject from "./RelatedProject";
 
 type ServiceDetailsProps = {
   overview: string[];
   quote: string;
   points: string[];
+  category:string;
 };
 
 export default function index({
   overview,
   quote,
   points,
+  category
 }: ServiceDetailsProps) {
   return (
     <section className="section-padding">
@@ -20,8 +23,9 @@ export default function index({
 
           {/* Sidebar */}
           <div className="text-white w-100">
-            <div className="sticky top-20">
+            <div className="sticky top-20 space-y-14">
               <ServicesTab/>
+              <RelatedProject category={category}/>
             </div>
           </div>
 

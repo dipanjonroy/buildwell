@@ -55,6 +55,7 @@ export default async function page({
         overview={service.overview}
         quote={service.quote}
         points={service.points}
+        category={service.category}
       />
     </>
   );
