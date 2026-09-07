@@ -30,38 +30,42 @@ export default function Header() {
   }, [pathName]);
 
   useEffect(() => {
-    if (!lenis) return;
+  if (!lenis) return;
 
-    const heroSection = document.querySelector<HTMLElement>(".scroll-height");
+  const heroSection = document.querySelector<HTMLElement>(".scroll-height");
+  const heroHeight = heroSection?.offsetHeight ?? 0;
 
-    const heroHeight = heroSection?.offsetHeight ?? 0;
+  let lastScroll = window.scrollY;
 
-    let lastScroll = window.scrollY;
+  const handleScroll = ({ scroll }: { scroll: number }) => {
 
-    const handleScroll = () => {
-      const currentScroll = window.scrollY;
+    const currentScroll = scroll;
+    const difference = currentScroll - lastScroll;
 
-      const scrollingDown = currentScroll > lastScroll;
+    if (Math.abs(difference) < 5) return;
 
-      if (currentScroll <= (heroHeight - 90 || 100)) {
-        setShowHeader(true);
-        setScrolledUp(false);
-      } else if (scrollingDown) {
-        setShowHeader(false);
-      } else {
-        setShowHeader(true);
-        setScrolledUp(true);
-      }
+    const scrollingDown = difference > 0;
 
-      lastScroll = currentScroll;
-    };
+    if (currentScroll <= heroHeight - 90) {
+      setShowHeader(true);
+      setScrolledUp(false);
+    } else if (scrollingDown) {
+      setShowHeader(false);
+      setScrolledUp(false);
+    } else {
+      setShowHeader(true);
+      setScrolledUp(true);
+    }
 
-    lenis.on("scroll", handleScroll);
+    lastScroll = currentScroll;
+  };
 
-    return () => {
-      lenis.off("scroll", handleScroll);
-    };
-  }, [lenis, pathName, isService]);
+  lenis.on("scroll", handleScroll);
+
+  return () => {
+    lenis.off("scroll", handleScroll);
+  };
+}, [lenis, pathName, isService]);
 
   const isBack = scrolledUp || isService || isNotFound;
 
