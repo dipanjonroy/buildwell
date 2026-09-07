@@ -1,6 +1,9 @@
 import { Manrope, Inter } from "next/font/google";
 import "./globals.css";
-import type { Metadata } from "next";
+import ModalLayout from "@/components/modals/ModalLayout";
+import ToastContainer from "@/components/providers/toast/ToastContainer";
+import AlertContainer from "@/components/providers/alert/AlertContainer";
+import SmoothScroller from "@/components/providers/SmoothScroller";
 
 const interFont = Inter({
   variable: "--font-inter",
@@ -11,15 +14,8 @@ const interFont = Inter({
 const manropeFont = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "800"],
+  weight: ["400", "500", "600","700", "800"],
 });
-
-export const metadata: Metadata = {
-  title:
-    "HomeBuild Construction | Residential & Commercial Construction Services",
-  description:
-    "HomeBuild Construction delivers high-quality residential and commercial construction, remodeling, renovations, and custom building solutions. We combine expert craftsmanship, transparent communication, and reliable project management to bring your vision to life.",
-};
 
 export default function RootLayout({
   children,
@@ -29,7 +25,13 @@ export default function RootLayout({
       lang="en"
       className={`${interFont.variable} ${manropeFont.variable} antialiased`}
     >
-      <body>{children}</body>
+      <body>
+        <SmoothScroller>{children}</SmoothScroller>
+
+        <ModalLayout />
+        <AlertContainer />
+        <ToastContainer />
+      </body>
     </html>
   );
 }

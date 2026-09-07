@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #111111;
-  --helper: #F7F6F9;
+  --helper: #f7f6f9;
 }
 
 @theme inline {
@@ -14,9 +14,104 @@
   --font-heading: var(--font-manrope);
 }
 
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter);
+}
+
+/* Background Color */
+@utility white-bg {
+  @apply bg-(--color-background);
+}
+
+@utility black-bg {
+  @apply bg-(--color-foreground);
+}
+
+@utility helper-bg {
+  @apply bg-(--color-helper);
+}
+
+/* Typography */
+@utility heading {
+  font-family: var(--font-heading);
+}
+@utility white-text {
+  @apply text-(--color-background);
+}
+@utility black-text {
+  @apply text-(--color-foreground);
+}
+@utility heading-two {
+  @apply heading font-bold text-[clamp(2rem,3vw,2.5rem)] leading-tight;
+}
+@utility base-para {
+  @apply text-sm lg:text-base;
+}
+
+/* Border color */
+@utility white-border {
+  @apply border-(--color-background);
+}
+@utility black-border {
+  @apply border-(--color-foreground);
+}
+
+/* Border color */
+@utility flex-center-between {
+  @apply flex items-center justify-between;
+}
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+@utility flex-col-center {
+  @apply flex flex-col items-center justify-center;
+}
+@utility inline-flex-center {
+  @apply inline-flex items-center;
+}
+@utility flex-end {
+  @apply flex items-end justify-end;
+}
+@utility flex-start {
+  @apply flex items-start justify-start;
+}
+
+/* Width */
+@utility site-container {
+  @apply w-[90%] max-w-360 mx-auto;
+}
+
+/* Section padding */
+@utility section-padding {
+  @apply pt-[clamp(3.75rem,9vw,7.5rem)] pb-[clamp(3.75rem,9vw,7.5rem)];
+}
+
+@utility half-section-padding {
+  @apply pt-[clamp(1rem,9vw,3.75rem)] pb-[clamp(1rem,9vw,3.75rem)];
+}
+
+/* Backdrop blur */
+@utility bg-blur {
+  @apply bg-(--color-background)/10 backdrop-blur-sm border white-border;
+}
+
+/* Marquee animation */
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
