@@ -1,4 +1,5 @@
 import HeroSection from "@/components/sections/CommonHero";
+import AllProjects from "@/components/sections/AllProjectsSection";
 
 export default function page() {
   return (
@@ -9,6 +10,7 @@ export default function page() {
         text="Explore a selection of our completed projects, from thoughtfully designed homes to large-scale commercial spaces. Each project reflects our commitment to quality craftsmanship, careful planning, and lasting results."
         img="/projectpage/projects-hero-image.jpg"
       />
+      <AllProjects />
     </>
   );
 }
