@@ -35,8 +35,8 @@ export default function RelatedProject({ category }: { category: string }) {
 
         {/* Text content */}
         <div className="absolute inset-0">
-          <div className="w-full h-full flex flex-col justify-end p-6 white-text space-y-4">
-            <h4 className="heading font-bold tracking-tight text-3xl leading-tight">{project.title}</h4>
+          <div className="w-full h-full flex flex-col justify-end p-6 white-text gap-3 lg:gap-4">
+            <h4 className="heading font-bold tracking-tight text-2xl lg:text-3xl leading-tight">{project.title}</h4>
             <span className="base-para">{project.location}</span>
             <Mainbutton url={`/projects/${project.slug}`} variant="white" btnName="View Details"/>
           </div>

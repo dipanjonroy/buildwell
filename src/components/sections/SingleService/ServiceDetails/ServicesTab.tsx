@@ -19,7 +19,7 @@ export default function ServicesTab() {
             <Link
               href={`/services/${service.url}`}
               key={idx}
-              className={`${activeSlug ? "black-bg white-text" : "border-b border-gray-400 hover:bg-gray-200 transition-colors duration-200"} ${isLast ? "border-b-0" : ""} black-text px-8 py-5 block`}
+              className={`${activeSlug ? "black-bg white-text" : "black-text border-b border-gray-400 hover:bg-gray-200 transition-colors duration-200"} ${isLast ? "border-b-0" : ""} text-sm lg:text-base px-8 py-5 block`}
             >
               {service.title}
             </Link>

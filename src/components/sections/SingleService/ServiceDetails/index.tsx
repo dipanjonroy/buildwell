@@ -19,10 +19,10 @@ export default function index({
   return (
     <section className="section-padding">
       <div className="site-container">
-        <div className="flex gap-22">
+        <div className="flex flex-col-reverse lg:flex-row gap-16 lg:gap-12 xl:gap-20">
 
           {/* Sidebar */}
-          <div className="text-white w-100">
+          <div className="text-white w-full lg:w-80 xl:w-100">
             <div className="sticky top-20 space-y-14">
               <ServicesTab/>
               <RelatedProject category={category}/>
@@ -30,8 +30,8 @@ export default function index({
           </div>
 
           {/* Details area */}
-          <div className="flex-1 space-y-12">
-            <div className="space-y-6">
+          <div className="flex-1 space-y-10 lg:space-y-12">
+            <div className="space-y-4 xl:space-y-6">
               <SectionHeading heading="Overview" align="left" />
               {overview.map((text, idx) => (
                 <p className="base-para tracking-tight" key={idx}>
@@ -40,13 +40,13 @@ export default function index({
               ))}
             </div>
 
-            <div className="p-8 helper-bg border-l-4 black-border">
-              <p className="text-lg tracking-tight italic font-semibold">{`"${quote}"`}</p>
+            <div className="p-8 helper-bg border-l-4 black-border rounded-xl overflow-hidden">
+              <p className="text-base xl:text-lg tracking-tight italic font-semibold">{`"${quote}"`}</p>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-6 lg:space-y-8">
               <SectionHeading heading="Scope of Work" align="left" />
-              <div className="flex gap-30">
+              <div className="flex flex-col xl:flex-row gap-2 xl:gap-22">
                 <div className="space-y-2">
                   {points.slice(0, 3).map((point, idx) => (
                     <div key={idx} className="flex items-center gap-4">
