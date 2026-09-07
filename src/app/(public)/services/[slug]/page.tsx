@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 
 import HeroSection from "@/components/sections/SingleService/SingleServiceHero";
 import DetailsSection from "@/components/sections/SingleService/ServiceDetails";
+import ProcessSection from "@/components/sections/ProcessSection";
+import CtaSection from "@/components/sections/CTASection";
 
 export async function generateMetadata({
   params,
@@ -57,6 +59,8 @@ export default async function page({
         points={service.points}
         category={service.category}
       />
+      <ProcessSection/>
+      <CtaSection className="pt-[clamp(3.75rem,9vw,7.5rem)]"/>
     </>
   );
 }
