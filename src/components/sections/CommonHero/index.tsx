@@ -15,7 +15,7 @@ export default function index({
   text,
 }: HeroSectionTypes) {
   return (
-    <section className="scroll-height w-full h-dvh 2xl:h-200 overflow-hidden">
+    <section className="scroll-height w-full h-dvh 2xl:h-200 overflow-hidden z-0">
       <HeroAnimation>
         <div className="relative w-full h-full flex items-end pb-10">
           {/* Background */}
@@ -36,7 +36,7 @@ export default function index({
           </div>
 
           {/* content */}
-          <div className="relative site-container z-100">
+          <div className="relative site-container z-10">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 white-text">
               <div className="w-full max-w-130">
                 <span className="hero-badge block mb-8"> {`[${badge}]`}</span>
