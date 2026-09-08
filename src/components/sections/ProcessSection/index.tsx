@@ -7,7 +7,7 @@ export default function index() {
     <section className="section-padding black-bg overflow-hidden">
       <div className="site-container">
         <HorizontalScrollAnimation>
-          <div className="space-y-20">
+          <div className="space-y-12 2xl:space-y-20">
             <SectionHeading
               label="How We Work"
               heading="From Vision to Completion"
