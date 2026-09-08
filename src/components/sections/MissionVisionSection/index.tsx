@@ -93,7 +93,7 @@ export default function MissionVision() {
 
   return (
     <section ref={sectionRef} className="relative w-full">
-      <div className="relative w-full h-200 xl:h-300 overflow-hidden">
+      <div className="relative w-full h-200 2xl:h-250 overflow-hidden">
         {/* Image */}
         <div ref={imageRef} className="absolute inset-0">
           <Image
