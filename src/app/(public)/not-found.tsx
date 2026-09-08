@@ -23,7 +23,7 @@ export default function NotFound() {
           <div className="w-full flex flex-col-reverse lg:flex-row lg:items-center gap-12 xl:gap-20">
             {/* Image */}
             <div className="w-full lg:w-1/2">
-              <div className="relative w-full h-[clamp(20rem,35vw,40rem)] rounded-xl overflow-hidden bg-red-400">
+              <div className="relative w-full h-[clamp(20rem,35vw,40rem)] rounded-xl overflow-hidden">
                 <Image
                   src="/404-not-found.jpg"
                   alt="Two contractors watching tall buildings"

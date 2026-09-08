@@ -17,6 +17,7 @@ export default function index() {
               fill
               sizes="100vw"
               className="hero-bg object-cover object-center"
+              loading="eager"
             />
           </div>
 
