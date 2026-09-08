@@ -19,7 +19,7 @@ export default function ProjectCard({ details, featured }: ProjectCardType) {
               className={`flex-1 white-text`}
             >
               <span className="text-sm mb-2 block">{details.location}</span>
-              <h3 className="heading font-bold text-lg xl:text-xl 2xl:text-2xl tracking-tight leading-tight line-clamp-1">
+              <h3 className="heading font-bold text-lg xl:text-xl 2xl:text-2xl tracking-tight leading-tight xl:line-clamp-1">
                 {details.title}
               </h3>
 
