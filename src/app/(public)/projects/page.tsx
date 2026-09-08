@@ -1,5 +1,13 @@
 import HeroSection from "@/components/sections/CommonHero";
 import AllProjects from "@/components/sections/AllProjectsSection";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  openGraph: {
+    images: ["/projectpage/projects-hero-image.jpg"],
+  },
+};
 
 export default function page() {
   return (
