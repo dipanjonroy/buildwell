@@ -9,7 +9,7 @@ export default function TestimonialSlider() {
       <div className="w-max animate-marquee">
         <div className="flex">
           {testimonials.map((testimonial, idx) => (
-            <div key={idx} className="mx-4">
+            <div key={idx} className="w-80 lg:w-110 mx-4">
               <TestimonialCard details={testimonial} />
             </div>
           ))}
