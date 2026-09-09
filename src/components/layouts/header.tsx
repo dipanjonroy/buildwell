@@ -18,7 +18,8 @@ export default function Header() {
   const [showHeader, setShowHeader] = useState<boolean>(true);
   const [scrolledUp, setScrolledUp] = useState<boolean>(false);
 
-  const isService = pathName.startsWith("/services/");
+
+  const heroSection = document.querySelector<HTMLElement>(".scroll-height");
 
   useEffect(() => {
     const handleState = () => {
@@ -32,7 +33,7 @@ export default function Header() {
   useEffect(() => {
   if (!lenis) return;
 
-  const heroSection = document.querySelector<HTMLElement>(".scroll-height");
+  
   const heroHeight = heroSection?.offsetHeight ?? 0;
 
   let lastScroll = window.scrollY;
@@ -65,9 +66,9 @@ export default function Header() {
   return () => {
     lenis.off("scroll", handleScroll);
   };
-}, [lenis, pathName, isService]);
+}, [lenis, pathName, heroSection]);
 
-  const isBack = scrolledUp || isService || isNotFound;
+  const isBlack = scrolledUp || !heroSection || isNotFound;
 
   return (
     <div
@@ -78,12 +79,12 @@ export default function Header() {
         <Logo
           className="w-16 h-16 md:w-18 md:h-18 lg:w-20 lg:h-20"
           sizes="(min-width:1024px) 80px, (min-width:768px) 72px, 64px"
-          variant={isBack ? "black" : "white"}
+          variant={isBlack ? "black" : "white"}
         />
 
         {/* Header Navigation */}
         <div
-          className={`hidden lg:block ${isBack ? "black-text" : "white-text"}`}
+          className={`hidden lg:block ${isBlack ? "black-text" : "white-text"}`}
         >
           <Mainmenu />
         </div>
@@ -93,7 +94,7 @@ export default function Header() {
           <Mainbutton
             btnName="Contact"
             url="/contact"
-            variant={isBack ? "black" : "white"}
+            variant={isBlack ? "black" : "white"}
           />
         </div>
 
