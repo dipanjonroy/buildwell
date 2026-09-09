@@ -2,6 +2,8 @@ import { projectsData } from "@/libs/projectData";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import SingleProjectIntro from "@/components/sections/SingleProject/SingleProjectIntro";
+
 export async function generateMetadata({
   params,
 }: {
@@ -47,7 +49,13 @@ export default async function page({
     (item) => item.slug.toString() === slug.toString(),
   );
 
+  console.log(project);
+
   if (!project) return notFound();
 
-  return <div>{project.title}</div>;
+  return (
+    <>
+      <SingleProjectIntro title={project.title} text={project.shortDesc} img={project.img}/>
+    </>
+  );
 }
