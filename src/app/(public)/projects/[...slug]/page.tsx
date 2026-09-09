@@ -56,8 +56,12 @@ export default async function page({
 
   return (
     <>
-      <ProjectIntro title={project.title} text={project.shortDesc} img={project.img}/>
-      <ProjectDetails/>
+      <ProjectIntro
+        title={project.title}
+        text={project.shortDesc}
+        img={project.img}
+      />
+      <ProjectDetails project={project} />
     </>
   );
 }
