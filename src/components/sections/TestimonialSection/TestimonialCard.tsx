@@ -1,20 +1,14 @@
+import { TestimonialType } from "@/libs/testimonialData";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
-
-type TestimonialCardProp = {
-  name: string;
-  location: string;
-  review: string;
-  img: string;
-};
 
 export default function TestimonialCard({
   details,
 }: {
-  details: TestimonialCardProp;
+  details: TestimonialType;
 }) {
   return (
-    <div className="w-80 lg:w-110 h-80 p-6 helper-bg rounded-xl border border-gray-300">
+    <div className="w-full h-80 p-6 helper-bg rounded-xl border border-gray-300">
       <div className="relative w-full h-full">
         {/* Reviewerr info */}
         <div className="flex items-center gap-6">
