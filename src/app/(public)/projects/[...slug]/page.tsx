@@ -50,8 +50,6 @@ export default async function page({
     (item) => item.slug.toString() === slug.toString(),
   );
 
-  console.log(project);
-
   if (!project) return notFound();
 
   return (

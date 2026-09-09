@@ -44,7 +44,7 @@ body {
   @apply text-(--color-foreground);
 }
 @utility heading-two {
-  @apply heading font-bold text-[clamp(2rem,3vw,2.5rem)] leading-tight;
+  @apply heading font-bold text-[clamp(2rem,3vw,2.5rem)] tracking-tight leading-tight;
 }
 @utility base-para {
   @apply text-sm lg:text-base;
