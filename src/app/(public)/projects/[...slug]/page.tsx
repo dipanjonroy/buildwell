@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 
 import ProjectIntro from "@/components/sections/SingleProject/SingleProjectIntro";
 import ProjectDetails from "@/components/sections/SingleProject/SingleProjectDetails";
+import FeaturedProjects from "@/components/sections/SingleProject/FeaturedProjects";
+import CtaSection from "@/components/sections/CTASection";
 
 export async function generateMetadata({
   params,
@@ -52,6 +54,8 @@ export default async function page({
 
   if (!project) return notFound();
 
+  const featuredProjects = projectsData.filter((p)=>p.id !== project.id).slice(0,2);
+
   return (
     <>
       <ProjectIntro
@@ -60,6 +64,8 @@ export default async function page({
         img={project.img}
       />
       <ProjectDetails project={project} />
+      <FeaturedProjects projects={featuredProjects}/>
+      <CtaSection className="pt-[clamp(3.75rem,9vw,7.5rem)]"/>
     </>
   );
 }
