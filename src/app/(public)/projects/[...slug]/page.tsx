@@ -2,7 +2,8 @@ import { projectsData } from "@/libs/projectData";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import SingleProjectIntro from "@/components/sections/SingleProject/SingleProjectIntro";
+import ProjectIntro from "@/components/sections/SingleProject/SingleProjectIntro";
+import ProjectDetails from "@/components/sections/SingleProject/SingleProjectDetails";
 
 export async function generateMetadata({
   params,
@@ -55,7 +56,8 @@ export default async function page({
 
   return (
     <>
-      <SingleProjectIntro title={project.title} text={project.shortDesc} img={project.img}/>
+      <ProjectIntro title={project.title} text={project.shortDesc} img={project.img}/>
+      <ProjectDetails/>
     </>
   );
 }
