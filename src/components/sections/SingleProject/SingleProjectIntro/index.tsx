@@ -32,6 +32,7 @@ export default function index({ title, text, img }: SingleProjectIntroTypes) {
               fill
               className="object-cover"
               loading="eager"
+              sizes="100vw"
             />
           </div>
         </div>
