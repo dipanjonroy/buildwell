@@ -6,7 +6,7 @@ type ProjectCategory =
 
 type ProjectSection = {
   text: string;
-  images: string[];
+  image: string;
 };
 
 export type ProjectType = {
@@ -28,7 +28,7 @@ export type ProjectType = {
 
   featuresFunctions: {
     text: string;
-    images: string[];
+    image: string;
     features: string[];
   };
 
@@ -40,7 +40,7 @@ export type ProjectType = {
 export const projectsData: ProjectType[] = [
   {
     id: 1,
-    img: "/projects/project-1.jpg",
+    img: "/projects/residential/main.jpg",
     title: "Desert Vista Luxury Residence",
     shortDesc:
       "A modern luxury home featuring open living spaces, premium finishes, and a seamless indoor-outdoor design inspired by the desert landscape.",
@@ -57,18 +57,12 @@ export const projectsData: ProjectType[] = [
 
     designPlanning: {
       text: "Our design and planning process focused on balancing modern architectural details with the natural character of Scottsdale. The layout was carefully developed to maximize natural light, create open gathering spaces, and establish a smooth connection between the main living areas and outdoor spaces.",
-      images: [
-        "/projects/project-1-design-1.jpg",
-        "/projects/project-1-design-2.jpg",
-      ],
+      image: "/projects/residential/planning.jpg",
     },
 
     featuresFunctions: {
       text: "Every element of the home was planned with both aesthetics and everyday functionality in mind. The result is a refined living environment that feels spacious, practical, and connected to its surroundings.",
-      images: [
-        "/projects/project-1-feature-1.jpg",
-        "/projects/project-1-feature-2.jpg",
-      ],
+      image: "/projects/residential/features.jpg",
       features: [
         "Open-concept kitchen and living area",
         "Large floor-to-ceiling windows",
@@ -81,24 +75,18 @@ export const projectsData: ProjectType[] = [
 
     buildProcess: {
       text: "Construction was carefully managed from the initial site preparation through the final finishing stages. Our team coordinated the various trades, materials, and construction phases to maintain quality while keeping the project moving efficiently.",
-      images: [
-        "/projects/project-1-build-1.jpg",
-        "/projects/project-1-build-2.jpg",
-      ],
+      image: "/projects/residential/process.jpg",
     },
 
     outcomeImpact: {
       text: "The completed residence delivers a sophisticated modern home that combines luxury, comfort, and functionality. The thoughtful design creates an inviting environment for everyday family life while providing beautiful spaces for entertaining and enjoying the Arizona landscape.",
-      images: [
-        "/projects/project-1-outcome-1.jpg",
-        "/projects/project-1-outcome-2.jpg",
-      ],
+      image: "/projects/residential/outcome.jpg",
     },
   },
 
   {
     id: 2,
-    img: "/projects/project-2.jpg",
+    img: "/projects/commercial/main.jpg",
     title: "The Boulevard Commercial Center",
     shortDesc:
       "A contemporary commercial development designed to provide functional retail and office spaces with a focus on efficiency and modern architecture.",
@@ -115,18 +103,12 @@ export const projectsData: ProjectType[] = [
 
     designPlanning: {
       text: "Planning focused on creating an efficient site layout with clear circulation, accessible entrances, and flexible interior spaces. Architectural elements were selected to give the development a contemporary identity while maintaining long-term functionality.",
-      images: [
-        "/projects/project-2-design-1.jpg",
-        "/projects/project-2-design-2.jpg",
-      ],
+      image: "/projects/commercial/planning.jpg",
     },
 
     featuresFunctions: {
       text: "The commercial center was designed around flexibility, accessibility, and a strong customer experience. Each space was planned to accommodate changing business requirements while maintaining a consistent architectural character.",
-      images: [
-        "/projects/project-2-feature-1.jpg",
-        "/projects/project-2-feature-2.jpg",
-      ],
+      image: "/projects/commercial/features.jpg",
       features: [
         "Flexible retail and office layouts",
         "Modern exterior architectural design",
@@ -139,24 +121,18 @@ export const projectsData: ProjectType[] = [
 
     buildProcess: {
       text: "The construction process involved coordinating structural work, building systems, interior finishes, and exterior improvements. Careful scheduling helped maintain progress across multiple areas of the development.",
-      images: [
-        "/projects/project-2-build-1.jpg",
-        "/projects/project-2-build-2.jpg",
-      ],
+      image: "/projects/commercial/process.jpg",
     },
 
     outcomeImpact: {
       text: "The finished development provides a modern and adaptable commercial environment designed to support businesses and their customers. Its flexible spaces and contemporary appearance create a strong foundation for long-term commercial use.",
-      images: [
-        "/projects/project-2-outcome-1.jpg",
-        "/projects/project-2-outcome-2.jpg",
-      ],
+      image: "/projects/commercial/outcome.jpg",
     },
   },
 
   {
     id: 3,
-    img: "/projects/project-3.jpg",
+    img: "/projects/build/main.jpg",
     title: "Modern Retreat",
     shortDesc:
       "A contemporary retreat designed with clean architectural lines, comfortable living spaces, and a strong connection to the surrounding landscape.",
@@ -173,18 +149,12 @@ export const projectsData: ProjectType[] = [
 
     designPlanning: {
       text: "The design process centered on creating a calm and open environment. The floor plan was organized around natural movement, generous glazing, and carefully positioned outdoor spaces that extend the living experience beyond the interior.",
-      images: [
-        "/projects/project-3-design-1.jpg",
-        "/projects/project-3-design-2.jpg",
-      ],
+      image: "/projects/build/planning.jpg",
     },
 
     featuresFunctions: {
       text: "The home combines minimalist design with practical features that improve everyday living. Materials, lighting, and spatial planning were carefully selected to create a cohesive contemporary environment.",
-      images: [
-        "/projects/project-3-feature-1.jpg",
-        "/projects/project-3-feature-2.jpg",
-      ],
+      image: "/projects/build/features.jpg",
       features: [
         "Clean contemporary architectural lines",
         "Open-plan living and dining spaces",
@@ -197,24 +167,18 @@ export const projectsData: ProjectType[] = [
 
     buildProcess: {
       text: "The design-build approach allowed the architectural vision and construction process to remain closely connected. Materials and construction details were coordinated throughout the project to achieve a consistent final result.",
-      images: [
-        "/projects/project-3-build-1.jpg",
-        "/projects/project-3-build-2.jpg",
-      ],
+      image: "/projects/build/process.jpg",
     },
 
     outcomeImpact: {
       text: "The completed retreat offers a comfortable and visually refined living environment that feels naturally connected to the landscape. The result is a modern home designed for both relaxation and everyday living.",
-      images: [
-        "/projects/project-3-outcome-1.jpg",
-        "/projects/project-3-outcome-2.jpg",
-      ],
+      image: "/projects/build/outcome.jpg",
     },
   },
 
   {
     id: 4,
-    img: "/projects/project-4.jpg",
+    img: "/projects/remodeling/main.jpg",
     title: "Sunset Valley Family Home",
     shortDesc:
       "A thoughtfully designed family home combining functional spaces, warm finishes, and modern details for comfortable everyday living.",
@@ -231,18 +195,12 @@ export const projectsData: ProjectType[] = [
 
     designPlanning: {
       text: "Planning began with understanding how the family used the existing home and identifying areas that limited functionality. The design introduced better circulation, improved storage, and updated living spaces while maintaining the character of the property.",
-      images: [
-        "/projects/project-4-design-1.jpg",
-        "/projects/project-4-design-2.jpg",
-      ],
+      image: "/projects/remodeling/planning.jpg",
     },
 
     featuresFunctions: {
       text: "The renovation introduced practical improvements throughout the home while creating a warmer and more contemporary visual identity.",
-      images: [
-        "/projects/project-4-feature-1.jpg",
-        "/projects/project-4-feature-2.jpg",
-      ],
+      image: "/projects/remodeling/features.jpg",
       features: [
         "Updated open-concept living area",
         "Modernized kitchen",
@@ -255,24 +213,18 @@ export const projectsData: ProjectType[] = [
 
     buildProcess: {
       text: "The renovation was completed in carefully coordinated phases to minimize disruption and maintain construction quality. Existing conditions were addressed before new finishes and fixtures were installed.",
-      images: [
-        "/projects/project-4-build-1.jpg",
-        "/projects/project-4-build-2.jpg",
-      ],
+      image: "/projects/remodeling/process.jpg",
     },
 
     outcomeImpact: {
       text: "The renovated home now provides a brighter, more functional, and comfortable environment for the family. The improvements modernized the property while making the space better suited to everyday living.",
-      images: [
-        "/projects/project-4-outcome-1.jpg",
-        "/projects/project-4-outcome-2.jpg",
-      ],
+      image: "/projects/remodeling/outcome.jpg",
     },
   },
 
   {
     id: 5,
-    img: "/projects/project-5.jpg",
+    img: "/projects/remodeling/main-2.jpg",
     title: "Home Renovation",
     shortDesc:
       "A complete residential renovation focused on improving functionality, updating finishes, and creating a more modern and inviting home.",
@@ -289,18 +241,12 @@ export const projectsData: ProjectType[] = [
 
     designPlanning: {
       text: "The planning phase focused on identifying opportunities to improve the home's layout, finishes, and overall usability. The design introduced a cleaner visual language while ensuring that the renovated spaces remained practical for everyday use.",
-      images: [
-        "/projects/project-5-design-1.jpg",
-        "/projects/project-5-design-2.jpg",
-      ],
+      image: "/projects/remodeling/planning-2.jpg",
     },
 
     featuresFunctions: {
       text: "The renovation combined modern finishes with practical improvements designed to make the home easier and more enjoyable to live in.",
-      images: [
-        "/projects/project-5-feature-1.jpg",
-        "/projects/project-5-feature-2.jpg",
-      ],
+      image: "/projects/remodeling/features-2.jpg",
       features: [
         "Updated kitchen and living spaces",
         "Modern bathroom finishes",
@@ -313,18 +259,12 @@ export const projectsData: ProjectType[] = [
 
     buildProcess: {
       text: "The construction process included demolition, preparation, installation, finishing, and final detailing. Each phase was coordinated to ensure the new materials and systems integrated properly with the existing structure.",
-      images: [
-        "/projects/project-5-build-1.jpg",
-        "/projects/project-5-build-2.jpg",
-      ],
+      image: "/projects/remodeling/process-2.jpg",
     },
 
     outcomeImpact: {
       text: "The completed renovation gave the home a fresh and contemporary feel while significantly improving its functionality. The updated spaces provide a more comfortable environment and give the property a renewed sense of value.",
-      images: [
-        "/projects/project-5-outcome-1.jpg",
-        "/projects/project-5-outcome-2.jpg",
-      ],
+      image: "/projects/remodeling/outcome-2.jpg",
     },
   },
 ];
