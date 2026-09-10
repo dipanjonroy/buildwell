@@ -17,10 +17,9 @@ export default function Header() {
 
   const [showHeader, setShowHeader] = useState<boolean>(true);
   const [scrolledUp, setScrolledUp] = useState<boolean>(false);
+  const [heroHeight, setHeroHeight] = useState<number>(0);
 
-
-  const heroSection = document.querySelector<HTMLElement>(".scroll-height");
-
+  // Reset header when route changes
   useEffect(() => {
     const handleState = () => {
       setScrolledUp(false);
@@ -30,45 +29,52 @@ export default function Header() {
     handleState();
   }, [pathName]);
 
+  // Get hero height from DOM
   useEffect(() => {
-  if (!lenis) return;
+    const handleHeroHeight = () => {
+      const heroSection = document.querySelector<HTMLElement>(".scroll-height");
+      setHeroHeight(heroSection?.offsetHeight ?? 0);
+    };
 
-  
-  const heroHeight = heroSection?.offsetHeight ?? 0;
+    handleHeroHeight();
+  }, [pathName]);
 
-  let lastScroll = window.scrollY;
+  // Handle Lenis scroll
+  useEffect(() => {
+    if (!lenis) return;
 
-  const handleScroll = ({ scroll }: { scroll: number }) => {
+    let lastScroll = window.scrollY;
 
-    const currentScroll = scroll;
-    const difference = currentScroll - lastScroll;
+    const handleScroll = ({ scroll }: { scroll: number }) => {
+      const currentScroll = scroll;
+      const difference = currentScroll - lastScroll;
 
-    if (Math.abs(difference) < 5) return;
+      if (Math.abs(difference) < 5) return;
 
-    const scrollingDown = difference > 0;
+      const scrollingDown = difference > 0;
 
-    if (currentScroll <= heroHeight - 90) {
-      setShowHeader(true);
-      setScrolledUp(false);
-    } else if (scrollingDown) {
-      setShowHeader(false);
-      setScrolledUp(false);
-    } else {
-      setShowHeader(true);
-      setScrolledUp(true);
-    }
+      if (currentScroll <= heroHeight - 90) {
+        setShowHeader(true);
+        setScrolledUp(false);
+      } else if (scrollingDown) {
+        setShowHeader(false);
+        setScrolledUp(false);
+      } else {
+        setShowHeader(true);
+        setScrolledUp(true);
+      }
 
-    lastScroll = currentScroll;
-  };
+      lastScroll = currentScroll;
+    };
 
-  lenis.on("scroll", handleScroll);
+    lenis.on("scroll", handleScroll);
 
-  return () => {
-    lenis.off("scroll", handleScroll);
-  };
-}, [lenis, pathName, heroSection]);
+    return () => {
+      lenis.off("scroll", handleScroll);
+    };
+  }, [lenis, pathName, heroHeight]);
 
-  const isBlack = scrolledUp || !heroSection || isNotFound;
+  const isBlack = scrolledUp || !heroHeight || isNotFound;
 
   return (
     <div
