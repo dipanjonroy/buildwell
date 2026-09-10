@@ -51,11 +51,11 @@ export default function index({ project }: { project: ProjectType }) {
                 <div>
                   <div className="w-full h-120 relative rounded-2xl overflow-hidden">
                     <Image
-                      src={project.img}
-                      alt={project.title}
+                      src={project.designPlanning.image}
+                      alt={`${project.title}-Design Planning`}
                       fill
                       className="object-cover"
-                      sizes="100vw"
+                      sizes="(max-width:1279px) 100vw, 66vw"
                     />
                   </div>
                 </div>
@@ -85,11 +85,11 @@ export default function index({ project }: { project: ProjectType }) {
                 <div>
                   <div className="w-full h-120 relative rounded-2xl overflow-hidden">
                     <Image
-                      src={project.img}
-                      alt={project.title}
+                      src={project.featuresFunctions.image}
+                      alt={`${project.title}-Features`}
                       fill
                       className="object-cover"
-                      sizes="100vw"
+                      sizes="(max-width:1279px) 100vw, 66vw"
                     />
                   </div>
                 </div>
@@ -104,11 +104,11 @@ export default function index({ project }: { project: ProjectType }) {
                 <div>
                   <div className="w-full h-120 relative rounded-2xl overflow-hidden">
                     <Image
-                      src={project.img}
-                      alt={project.title}
+                      src={project.buildProcess.image}
+                      alt={`${project.title}-Build Process`}
                       fill
                       className="object-cover"
-                      sizes="100vw"
+                      sizes="(max-width:1279px) 100vw, 66vw"
                     />
                   </div>
                 </div>
@@ -123,11 +123,11 @@ export default function index({ project }: { project: ProjectType }) {
                 <div>
                   <div className="w-full h-120 relative rounded-2xl overflow-hidden">
                     <Image
-                      src={project.img}
-                      alt={project.title}
+                      src={project.outcomeImpact.image}
+                      alt={`${project.title}-Final outcome`}
                       fill
                       className="object-cover"
-                      sizes="100vw"
+                      sizes="(max-width:1279px) 100vw, 66vw"
                     />
                   </div>
                 </div>
