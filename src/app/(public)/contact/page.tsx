@@ -1,4 +1,5 @@
 import HeroSection from "@/components/sections/CommonHero";
+import ContactMethods from "@/components/sections/ContactMethods";
 import { Metadata } from "next";
 
 export const metadata:Metadata = {
@@ -17,6 +18,7 @@ export default function page() {
         headline="Let’s Build Something Great Together"
         text="Have a project in mind or need help bringing your ideas to life? Get in touch with us today. We’d love to hear about your project and explore how we can help."
       />
+      <ContactMethods/>
     </>
   );
 }
