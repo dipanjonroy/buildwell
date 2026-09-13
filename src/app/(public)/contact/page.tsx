@@ -1,6 +1,7 @@
 import HeroSection from "@/components/sections/CommonHero";
 import ContactMethods from "@/components/sections/ContactMethods";
 import ContactForm from "@/components/sections/ContactFormArea";
+import ContactMap from "@/components/sections/ContactMap";
 
 import { Metadata } from "next";
 
@@ -22,6 +23,7 @@ export default function page() {
       />
       <ContactMethods/>
       <ContactForm/>
+      <ContactMap/>
     </>
   );
 }
