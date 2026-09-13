@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import type { IconType } from "react-icons";
 
 type InputType = {
@@ -27,8 +26,6 @@ export default function Input({
   onChange,
 }: InputType) {
 
-  const [localValue, setLocalValue] = useState(value);
-
 
   return (
     <div className="w-full flex flex-col gap-1">
@@ -43,11 +40,10 @@ export default function Input({
         <input
           id={name}
           name={name}
-          value={localValue}
+          value={value}
           onChange={(e) => {
-            setLocalValue(e.target.value);
+            onChange(e.target.value);
           }}
-          onBlur={()=>onChange(localValue)}
           type={type}
           placeholder={placeholder}
           className={`w-full border focus:outline-none ${error ? "border-red-500 focus:ring-1 focus:ring-red-500" : "border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-300"} rounded-md ${Icon ? "ps-10 pe-3" : "px-3"} py-3 black-text text-xs lg:text-sm `}
