@@ -29,6 +29,7 @@ import { alert } from "../providers/alert/alert";
 import { format } from "date-fns";
 import { useAlertStore } from "@/store/AlertStore";
 import OpenCloseAnimation from "../animations/OpenCloseAnimation";
+import { projectTypes } from "@/libs/projectTypes";
 
 interface MeetingFormTypes {
   personalDetails: {
@@ -84,32 +85,7 @@ const leftSideTexts = [
   },
 ];
 
-const projectTypes = [
-  {
-    label: "New Construction",
-    value: "new-construction",
-  },
 
-  {
-    label: "Home Renovation",
-    value: "home-renovation",
-  },
-
-  {
-    label: "Home Addition",
-    value: "home-addition",
-  },
-
-  {
-    label: "Kitchen & Bathroom",
-    value: "kitchen-bathroom",
-  },
-
-  {
-    label: "Commercial",
-    value: "commercial",
-  },
-];
 
 const budgetOptions = [
   { label: "Under $50K", value: "under-50k" },

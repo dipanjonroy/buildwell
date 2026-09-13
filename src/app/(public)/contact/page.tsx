@@ -1,5 +1,7 @@
 import HeroSection from "@/components/sections/CommonHero";
 import ContactMethods from "@/components/sections/ContactMethods";
+import ContactForm from "@/components/sections/ContactFormArea";
+
 import { Metadata } from "next";
 
 export const metadata:Metadata = {
@@ -19,6 +21,7 @@ export default function page() {
         text="Have a project in mind or need help bringing your ideas to life? Get in touch with us today. We’d love to hear about your project and explore how we can help."
       />
       <ContactMethods/>
+      <ContactForm/>
     </>
   );
 }

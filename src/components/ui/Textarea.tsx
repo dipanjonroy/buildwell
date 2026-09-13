@@ -3,32 +3,28 @@
 import { useState } from "react";
 import type { IconType } from "react-icons";
 
-type InputType = {
+type TextareaType = {
   label?: string;
   name: string;
-  value: string;
-  type: string;
-  placeholder?: string;
-  icon?: IconType;
+  placeholder: string;
   required?: boolean;
-  error?:boolean;
+  icon?: IconType;
+  value: string;
   onChange: (value: string) => void;
+  error?: boolean;
 };
 
-export default function Input({
+export default function Textarea({
   label,
   name,
-  type,
-  value,
+  required,
   placeholder,
   icon: Icon,
-  required,
-  error,
+  value,
   onChange,
-}: InputType) {
-
+  error,
+}: TextareaType) {
   const [localValue, setLocalValue] = useState(value);
-
 
   return (
     <div className="w-full flex flex-col gap-1">
@@ -40,18 +36,20 @@ export default function Input({
       ) : null}
 
       <div className="relative">
-        <input
+        <textarea
           id={name}
+          rows={8}
           name={name}
           value={localValue}
           onChange={(e) => {
             setLocalValue(e.target.value);
           }}
-          onBlur={()=>onChange(localValue)}
-          type={type}
+          onBlur={() => {
+            onChange(localValue);
+          }}
           placeholder={placeholder}
-          className={`w-full border focus:outline-none ${error ? "border-red-500 focus:ring-1 focus:ring-red-500" : "border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-300"} rounded-md ${Icon ? "ps-10 pe-3" : "px-3"} py-3 black-text text-xs lg:text-sm `}
-        />
+          className={`w-full border focus:outline-none ${error ? "border-red-500 focus:ring-1 focus:ring-red-500" : "border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-300"} rounded-md ${Icon ? "ps-10 pe-3" : "px-3"} py-3 black-text text-xs lg:text-sm resize-none overflow-hidden`}
+        ></textarea>
 
         {/* Icon */}
         {Icon && (

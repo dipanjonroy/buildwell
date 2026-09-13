@@ -59,6 +59,7 @@ export default function Select<T>({
       {/* Select Button */}
       <button
         onClick={() => setIsopen(!isOpen)}
+        type="button"
         className={`relative w-full border ${error ? "border-red-500" :"border-gray-300"} rounded-md ${Icon ? "ps-10 pe-3" : "px-3"} py-3 black-text text-xs lg:text-sm flex-center-between cursor-pointer`}
       >
         <span className={`${selectedOption ? "back-text" : "text-gray-400"}`}>{selectedOption?.label || placeholder}</span>

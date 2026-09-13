@@ -1,5 +1,6 @@
 "use client";
 
+import { useAlertStore } from "@/store/AlertStore";
 import { useModalStore } from "@/store/ModalStore";
 import ReactLenis, { useLenis } from "lenis/react";
 import { usePathname } from "next/navigation";
@@ -10,6 +11,7 @@ const LenisScrollReset = () => {
   const path = usePathname();
 
   const { isModalOpen } = useModalStore();
+  const { isAlertOpen } = useAlertStore();
 
   useEffect(() => {
     if (!lenis) return;
@@ -18,7 +20,7 @@ const LenisScrollReset = () => {
   }, [lenis,path]);
 
   useEffect(() => {
-    if (isModalOpen) {
+    if (isModalOpen || isAlertOpen) {
       lenis?.stop();
       document.body.style.overflow = "hidden";
     } else {
@@ -29,7 +31,7 @@ const LenisScrollReset = () => {
     return () => {
       document.body.style.overflow = "";
     };
-  }, [lenis, isModalOpen]);
+  }, [lenis, isModalOpen,isAlertOpen]);
 
   return null;
 };
