@@ -44,8 +44,8 @@ export default function OpenCloseAnimation({
   };
 
   return (
-    <div ref={elementRef} className="md:mx-6 lg:mx-0 flex-center">
-      <div className="relative w-full h-full p-8 white-bg rounded-xl">
+    <div ref={elementRef} className="w-full max-h-[90vh] md:mx-6 lg:mx-0 flex-center">
+      <div className="relative w-full h-full max-h-[90vh] p-8 white-bg rounded-xl">
         {/* Close Modal */}
         <button
           onClick={closeModalAnimation}

@@ -371,7 +371,7 @@ export default function BookingModal() {
           </div>
 
           {/* Progress */}
-          <div className="flex-center my-8">
+          <div className="flex-center my-4 2xl:py-8">
             {steps.map((item, index) => (
               <div key={index} className="flex items-center">
                 <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-3">
@@ -398,10 +398,10 @@ export default function BookingModal() {
           </div>
 
           {/* Main area*/}
-          <div className="w-full h-full lg:border lg:border-gray-200 rounded-xl flex items-stretch">
+          <div className="w-full min-h-0 lg:border lg:border-gray-200 rounded-xl flex items-stretch">
             {/* Leftside */}
             <div className="hidden lg:block w-80 black-bg rounded-xl">
-              <div className="w-full h-60 rounded-xl overflow-hidden relative">
+              <div className="w-full h-50 2xl:h-60 rounded-xl overflow-hidden relative">
                 <Image
                   src="/booking-modal-image.jpg"
                   alt="White house under blue sky"
@@ -410,7 +410,7 @@ export default function BookingModal() {
                   sizes="320px"
                 />
               </div>
-              <div className="p-8 space-y-3">
+              <div className="p-4 2xl:p-6 space-y-2">
                 {leftSideTexts.map((item, index) => (
                   <div
                     key={index}
@@ -424,7 +424,7 @@ export default function BookingModal() {
             </div>
 
             {/* Details area */}
-            <div className="w-full lg:flex-1 lg:p-10 h-80 md:h-auto overflow-y-auto">
+            <div className="w-full lg:flex-1 lg:px-4 2xl:px-8 lg:pt-4 2xl:pt-8 min-h-0 overflow-y-auto">
               <div>
                 <h3 className="heading text-md lg:text-xl font-bold">
                   {detailsTitle[step].heading}
@@ -432,9 +432,9 @@ export default function BookingModal() {
                 <p className="text-xs lg:text-sm">{detailsTitle[step].text}</p>
               </div>
 
-              <div className="mt-3 lg:mt-10 ">
+              <div className="mt-3 lg:mt-6 2xl:mt-10">
                 {/* Input area */}
-                <div className="mb-6 lg:mb-18">
+                <div className="mb-6 lg:mb-10">
                   {/* About you */}
                   {step === 0 && (
                     <div className="space-y-3 lg:space-y-6">
