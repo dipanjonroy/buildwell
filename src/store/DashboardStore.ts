@@ -1,14 +1,20 @@
 import { create } from "zustand";
 
 type DashboardTypes = {
-  openMenu: boolean;
-  toggleMenu: () => void;
+  isMenuOpen: boolean;
+  openMenu: () => void;
+  closeMenu: () => void;
 };
 
 export const useDashboardStore = create<DashboardTypes>((set) => ({
-  openMenu: true,
-  toggleMenu: () =>
-    set((state) => ({
-      openMenu: !state.openMenu,
+  isMenuOpen: false,
+  openMenu: () =>
+    set(() => ({
+      isMenuOpen: true,
+    })),
+
+  closeMenu: () =>
+    set(() => ({
+      isMenuOpen: false,
     })),
 }));

@@ -1,38 +1,52 @@
 "use client";
 
 import { dashboardMenus } from "@/libs/dashboardMenu";
-import { useDashboardStore } from "@/store/DashboardStore";
+import Logo from "../Logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useDashboardStore } from "@/store/DashboardStore";
+import { RiCloseLine } from "react-icons/ri";
 
 export default function Navigation() {
-  const { openMenu } = useDashboardStore();
-  const pathName = usePathname();
+  const pathname = usePathname();
+  const { isMenuOpen, closeMenu } = useDashboardStore();
   return (
-    <div
-      className={`${openMenu ? "w-80" : "w-18"} h-full shrink-0 black-bg overflow-x-hidden overflow-y-auto transition-[width] duration-300`}
+    <aside
+      className={`fixed left-0 top-0 z-50 h-dvh w-60 black-bg transform transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
     >
-      <div className="w-full">
-        {dashboardMenus.map((menu, idx) => {
-          const Icon = menu.icon;
-          const isActive = pathName === menu.url;
+      <div className="w-full h-full p-4">
+        <div className="w-full flex items-center justify-between lg:justify-center">
+          <Logo variant="white" className="w-15 h-12 lg:w-22 lg:h-14" sizes="88px" />
+          <button
+            onClick={closeMenu}
+            className="lg:hidden w-8 h-8 rounded-md bg-[#2F2F2F] flex-center white-text"
+          >
+            <RiCloseLine />
+          </button>
+        </div>
 
-          return (
-            <Link key={idx} href={menu.url}>
-              <div
-                className={`px-6 py-4 flex items-center gap-4 ${isActive ? "bg-[#1f1f1f]" : "hover:bg-[#1f1f1f]"} transition-colors`}
+        <div className="mt-8">
+          {dashboardMenus.map((menu) => {
+            const Icon = menu.icon;
+            const isActive = pathname === menu.url;
+            return (
+              <Link
+                href={menu.url}
+                key={menu.url}
+                className={`block px-5 py-3 rounded-md ${isActive ? "helper-bg black-text" : "white-text"}`}
+                onClick={closeMenu}
               >
-                <Icon className="white-text text-xl shrink-0" />
-                {openMenu && (
-                  <span className="white-text text-sm whitespace-nowrap">
-                    {menu.label}
+                <span className="flex items-center gap-4">
+                  <span>
+                    <Icon size={20} />
                   </span>
-                )}
-              </div>
-            </Link>
-          );
-        })}
+                  <span className="text-sm">{menu.label}</span>
+                </span>
+              </Link>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </aside>
   );
 }
