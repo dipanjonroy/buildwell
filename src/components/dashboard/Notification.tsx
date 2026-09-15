@@ -28,7 +28,7 @@ export default function Notification() {
 
       {/* Notification Dropdown */}
       {notificationOpen && (
-        <div className="absolute top-full right-0 w-80 mt-3 white-bg border border-gray-200 rounded-xl overflow-hidden pb-4 shadow-xl">
+        <div className="absolute top-full -right-30 lg:right-0 w-80 mt-3 white-bg border border-gray-200 rounded-xl overflow-hidden pb-4 shadow-xl">
           {/* Headline */}
           <div className="px-6 py-3 border-b border-gray-200">
             <h4 className="font-semibold tracking-tight">Notifications</h4>
