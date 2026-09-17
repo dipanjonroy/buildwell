@@ -4,10 +4,10 @@ import Calender from "../ui/Calender";
 export default function DashboardCalender() {
   return (
     <div className="w-full p-6 white-bg border border-gray-300 rounded-xl">
-      <h4 className="font-bold tracking-tight text-xl">This Month</h4>
+      <h4 className="font-bold tracking-tight text-lg">This Month</h4>
 
       <div className="w-full mt-8">
-        <Calender bookings={bookings} weekClass="text-gray-400 font-semibold gap-5 mt-8" dayClass="gap-5 mt-5"/>
+        <Calender bookings={bookings} weekClass="text-gray-400 font-semibold text-sm gap-5 mt-8" dayClass="gap-2.5 mt-5 text-xs"/>
 
         <div className="flex items-center gap-6 mt-6">
           <span className="flex items-center gap-2">

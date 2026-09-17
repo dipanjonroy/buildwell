@@ -42,8 +42,8 @@ export default function StatCard({
         <div className="w-10 h-10 rounded-full bg-gray-200 flex-center">
           <Icon size={18}/>
         </div>
-        <span className="text-sm tracking-tight">{label}</span>
-        <span className="font-bold text-3xl tracking-tight">{number}</span>
+        <span className="text-sm tracking-tight text-gray-500">{label}</span>
+        <span className="font-bold text-2xl tracking-tight">{number}</span>
         <div className="flex gap-8">
           <span className={`${trendColor} flex items-center font-semibold`}>
             <TrendIcon size={18}/>

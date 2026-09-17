@@ -13,7 +13,7 @@ export default function UpcomingBookingsCard() {
   return (
     <div className="w-full p-6 white-bg border border-gray-300 rounded-xl">
       <div className="flex-center-between mb-4">
-        <h4 className="font-bold tracking-tight text-xl">Upcoming Bookings</h4>
+        <h4 className="font-bold tracking-tight text-lg">Upcoming Bookings</h4>
         <ViewAllBtn btnName="View all" url="/dashboard/bookings" />
       </div>
 
@@ -27,11 +27,11 @@ export default function UpcomingBookingsCard() {
             >
               <div className="grid grid-cols-[62px_32px_1fr_auto_32px_20px] items-center gap-10">
                 {/* Date */}
-                <div className="flex flex-col items-center justify-center bg-gray-100 rounded-xl tracking-tight w-16 h-20">
+                <div className="flex flex-col items-center justify-center bg-gray-100 rounded-xl tracking-tight w-16 h-17">
                   <span className="uppercase text-xs text-gray-500 font-medium">
                     sep
                   </span>
-                  <span className="font-bold text-xl">16</span>
+                  <span className="font-bold">16</span>
                   <span className="text-xs text-gray-500 font-medium capitalize">
                     wed
                   </span>
@@ -43,7 +43,7 @@ export default function UpcomingBookingsCard() {
                 {/* Booking Information */}
                 <div className="min-w-0 tracking-tight flex flex-col">
                   <span className="text-xs text-gray-500">09:00 AM</span>
-                  <span className="text-base font-bold capitalize">
+                  <span className="text-sm font-bold capitalize">
                     Sarah Wilson
                   </span>
                   <span className="text-xs text-gray-500 capitalize">

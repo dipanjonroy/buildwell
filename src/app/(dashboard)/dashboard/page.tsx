@@ -36,17 +36,17 @@ export default function page() {
         {/* Greetings */}
         <div className="flex justify-between mb-8 mt-2">
           <div>
-            <h3 className="font-semibold tracking-tight text-2xl leading-none">
+            <h3 className="font-semibold tracking-tight text-xl">
               {greeting}, Dipanjon!
             </h3>
-            <p className="text-sm tracking-tight leading-tight text-gray-500">
+            <p className="text-xs tracking-tight text-gray-500">
               Here&apos;s what&apos;s happening with your business today.
             </p>
           </div>
 
-          <div className="text-gray-500 flex items-center gap-3">
+          <div className="text-gray-500 font-semibold flex items-center gap-3">
             <FiCalendar size={18} />
-            <span className="text-sm">{formattedDate}</span>
+            <span className="text-xs">{formattedDate}</span>
           </div>
         </div>
 
