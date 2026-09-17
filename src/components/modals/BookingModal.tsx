@@ -85,8 +85,6 @@ const leftSideTexts = [
   },
 ];
 
-
-
 const budgetOptions = [
   { label: "Under $50K", value: "under-50k" },
   { label: "$50K - $100K", value: "50k-100k" },
@@ -353,303 +351,295 @@ export default function BookingModal() {
 
   return (
     <OpenCloseAnimation>
-      <div className="md:mx-6 lg:mx-0 flex-center">
-        <div className="relative w-full h-full max-w-250 white-bg rounded-xl">
-          {/* Header */}
-          <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-2 lg:gap-5">
-            <div className="w-10 h-10 lg:w-16 lg:h-16 rounded-full bg-(--color-foreground)/10 flex-center">
-              <SlCalender className="black-text text-lg lg:text-2xl" />
-            </div>
-            <div>
-              <h2 className="text-center lg:text-left heading font-bold text-xl lg:text-2xl">
-                Book Free Consultation
-              </h2>
-              <p className="text-xs lg:text-sm text-center lg:text-left ">
-                Let&apos;s discuss your project and bring your vision to life.
-              </p>
-            </div>
+      <div className="w-full lg:w-200">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-2 lg:gap-5">
+          <div className="w-10 h-10 lg:w-16 lg:h-16 rounded-full bg-(--color-foreground)/10 flex-center">
+            <SlCalender className="black-text text-lg lg:text-2xl" />
           </div>
 
-          {/* Progress */}
-          <div className="flex-center my-4 2xl:py-8">
-            {steps.map((item, index) => (
-              <div key={index} className="flex items-center">
-                <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-3">
-                  <span
-                    className={`w-6 h-6 lg:w-8 lg:h-8 border ${index <= step ? "black-bg black-border white-text" : "bg-gray-100 border-gray-300"} rounded-full flex-center text-xs lg:text-sm`}
-                  >
-                    {index + 1}
-                  </span>
-                  <span
-                    className={`text-xs lg:text-sm text-center lg:text-left leading-none ${index <= step ? "font-semibold black-text" : "font-semibold text-gray-500"}`}
-                  >
-                    {item}
-                  </span>
-                </div>
+          <div>
+            <h2 className="text-center lg:text-left heading font-bold text-xl lg:text-2xl">
+              Book Free Consultation
+            </h2>
+            <p className="text-xs lg:text-sm text-center lg:text-left ">
+              Let&apos;s discuss your project and bring your vision to life.
+            </p>
+          </div>
+        </div>
 
-                {/* Lines */}
-                {index < steps.length - 1 && (
-                  <div
-                    className={`mx-2 lg:mx-4 w-10 lg:w-25 h-0.5 bg-gray-200`}
-                  />
-                )}
+        {/* Progress */}
+        <div className="flex-center my-4 2xl:py-8">
+          {steps.map((item, index) => (
+            <div key={index} className="flex items-center">
+              <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-3">
+                <span
+                  className={`w-6 h-6 lg:w-8 lg:h-8 border ${index <= step ? "black-bg black-border white-text" : "bg-gray-100 border-gray-300"} rounded-full flex-center text-xs lg:text-sm`}
+                >
+                  {index + 1}
+                </span>
+                <span
+                  className={`text-xs lg:text-sm text-center lg:text-left leading-none ${index <= step ? "font-semibold black-text" : "font-semibold text-gray-500"}`}
+                >
+                  {item}
+                </span>
               </div>
-            ))}
-          </div>
 
-          {/* Main area*/}
-          <div className="w-full min-h-0 lg:border lg:border-gray-200 rounded-xl flex items-stretch">
-            {/* Leftside */}
-            <div className="hidden lg:block w-80 black-bg rounded-xl">
-              <div className="w-full h-50 2xl:h-60 rounded-xl overflow-hidden relative">
-                <Image
-                  src="/booking-modal-image.jpg"
-                  alt="White house under blue sky"
-                  fill
-                  className="object-cover"
-                  sizes="320px"
+              {/* Lines */}
+              {index < steps.length - 1 && (
+                <div
+                  className={`mx-2 lg:mx-4 w-10 lg:w-25 h-0.5 bg-gray-200`}
                 />
-              </div>
-              <div className="p-4 2xl:p-6 space-y-2">
-                {leftSideTexts.map((item, index) => (
-                  <div
-                    key={index}
-                    className="white-text flex items-center gap-5"
-                  >
-                    <span className="text-xl">{item.icon}</span>
-                    <span className="text-sm">{item.text}</span>
-                  </div>
-                ))}
-              </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Main area*/}
+        <div className="w-full min-h-0 lg:border lg:border-gray-200 rounded-xl flex items-stretch">
+          {/* Leftside */}
+          <div className="hidden lg:block w-100 black-bg rounded-xl">
+            <div className="w-full h-50 2xl:h-60 rounded-xl overflow-hidden relative">
+              <Image
+                src="/booking-modal-image.jpg"
+                alt="White house under blue sky"
+                fill
+                className="object-cover"
+                sizes="320px"
+              />
+            </div>
+            <div className="p-4 2xl:p-6 space-y-2">
+              {leftSideTexts.map((item, index) => (
+                <div key={index} className="white-text flex items-center gap-5">
+                  <span className="text-xl">{item.icon}</span>
+                  <span className="text-sm">{item.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Details area */}
+          <div className="w-full min-w-0 lg:px-4 2xl:px-8 lg:pt-4 2xl:pt-8 min-h-0">
+            <div>
+              <h3 className="heading text-md lg:text-xl font-bold">
+                {detailsTitle[step].heading}
+              </h3>
+              <p className="text-xs lg:text-sm">{detailsTitle[step].text}</p>
             </div>
 
-            {/* Details area */}
-            <div className="w-full lg:flex-1 lg:px-4 2xl:px-8 lg:pt-4 2xl:pt-8 min-h-0 overflow-y-auto">
-              <div>
-                <h3 className="heading text-md lg:text-xl font-bold">
-                  {detailsTitle[step].heading}
-                </h3>
-                <p className="text-xs lg:text-sm">{detailsTitle[step].text}</p>
-              </div>
-
-              <div className="mt-3 lg:mt-6 2xl:mt-10">
-                {/* Input area */}
-                <div className="mb-6 lg:mb-10">
-                  {/* About you */}
-                  {step === 0 && (
-                    <div className="space-y-3 lg:space-y-6">
-                      <div>
-                        <Input
-                          label="Full Name"
-                          name="name"
-                          type="text"
-                          value={formData.personalDetails.fullName}
-                          onChange={(value) => {
-                            updateFormData(
-                              "personalDetails",
-                              "fullName",
-                              value,
-                            );
-                          }}
-                          placeholder="Enter your full name"
-                          icon={FiUser}
-                          required={true}
-                          error={emptyErrors.fullName}
-                        />
-                      </div>
-                      <div className="flex flex-col md:flex-row gap-3 lg:gap-6">
-                        <Input
-                          label="Email Address"
-                          name="email"
-                          type="text"
-                          value={formData.personalDetails.email}
-                          onChange={(value) =>
-                            updateFormData("personalDetails", "email", value)
-                          }
-                          placeholder="Enter your email"
-                          icon={FiMail}
-                          required={true}
-                          error={emptyErrors.email}
-                        />
-                        <Input
-                          label="Phone Number"
-                          name="phone"
-                          type="text"
-                          value={formData.personalDetails.phone}
-                          onChange={(value) =>
-                            updateFormData("personalDetails", "phone", value)
-                          }
-                          placeholder="Enter your phone number"
-                          icon={FiPhone}
-                          required={true}
-                          error={emptyErrors.phone}
-                        />
-                      </div>
+            <div className="w-full mt-3 lg:mt-6 2xl:mt-10">
+              {/* Input area */}
+              <div className="w-full mb-6 lg:mb-10">
+                {/* About you */}
+                {step === 0 && (
+                  <div className="w-full space-y-3 lg:space-y-6">
+                    <div>
+                      <Input
+                        label="Full Name"
+                        name="name"
+                        type="text"
+                        value={formData.personalDetails.fullName}
+                        onChange={(value) => {
+                          updateFormData("personalDetails", "fullName", value);
+                        }}
+                        placeholder="Enter your full name"
+                        icon={FiUser}
+                        required={true}
+                        error={emptyErrors.fullName}
+                      />
                     </div>
-                  )}
-
-                  {/* About project */}
-                  {step === 1 && (
-                    <div className="space-y-3 lg:space-y-6">
-                      <Select
-                        label="Project Type"
-                        value={formData.projectDetails.projectType}
+                    <div className="flex flex-col md:flex-row gap-3 lg:gap-6">
+                      <Input
+                        label="Email Address"
+                        name="email"
+                        type="text"
+                        value={formData.personalDetails.email}
                         onChange={(value) =>
-                          updateFormData("projectDetails", "projectType", value)
+                          updateFormData("personalDetails", "email", value)
                         }
-                        options={projectTypes}
+                        placeholder="Enter your email"
+                        icon={FiMail}
+                        required={true}
+                        error={emptyErrors.email}
+                      />
+                      <Input
+                        label="Phone Number"
+                        name="phone"
+                        type="text"
+                        value={formData.personalDetails.phone}
+                        onChange={(value) =>
+                          updateFormData("personalDetails", "phone", value)
+                        }
+                        placeholder="Enter your phone number"
+                        icon={FiPhone}
+                        required={true}
+                        error={emptyErrors.phone}
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* About project */}
+                {step === 1 && (
+                  <div className="w-full space-y-3 lg:space-y-6">
+                    <Select
+                      label="Project Type"
+                      value={formData.projectDetails.projectType}
+                      onChange={(value) =>
+                        updateFormData("projectDetails", "projectType", value)
+                      }
+                      options={projectTypes}
+                      placeholder="Select project type"
+                      required={true}
+                      icon={FiLayers}
+                      error={emptyErrors.projectType}
+                    />
+
+                    <div className="flex flex-col md:flex-row gap-3 lg:gap-6">
+                      <Select
+                        label="Estimated Budget"
+                        value={formData.projectDetails.projectBudget}
+                        onChange={(value) =>
+                          updateFormData(
+                            "projectDetails",
+                            "projectBudget",
+                            value,
+                          )
+                        }
+                        options={budgetOptions}
                         placeholder="Select project type"
                         required={true}
-                        icon={FiLayers}
-                        error={emptyErrors.projectType}
+                        icon={FiDollarSign}
+                        error={emptyErrors.projectBudget}
                       />
 
-                      <div className="flex flex-col md:flex-row gap-3 lg:gap-6">
+                      <Input
+                        label="Project ZIP Code"
+                        name="zipCode"
+                        type="text"
+                        value={formData.projectDetails.projectZipCode}
+                        onChange={(value) =>
+                          updateFormData(
+                            "projectDetails",
+                            "projectZipCode",
+                            value,
+                          )
+                        }
+                        placeholder="12345"
+                        icon={FiMapPin}
+                        required={true}
+                        error={emptyErrors.projectZipCode}
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Schedule */}
+                {step === 2 && (
+                  <div className="w-full space-y-6">
+                    {/* Meeting method */}
+                    <div className="space-y-1">
+                      <label className="font-bold text-xs lg:text-sm block">
+                        <span>Consultation Type</span>
+                        <span className="text-red-600 ms-1">*</span>
+                      </label>
+
+                      <div className="flex-center-between gap-3">
+                        {consultationMethod.map((option, index) => {
+                          const isSelected =
+                            option.value ===
+                            formData.meetingDetails.meetingMethod;
+
+                          return (
+                            <button
+                              key={index}
+                              onClick={() =>
+                                updateFormData(
+                                  "meetingDetails",
+                                  "meetingMethod",
+                                  option.value,
+                                )
+                              }
+                              className={`flex-center w-full gap-3 px-2 lg:px-6 py-3 border ${emptyErrors.meetingMethod ? "border-red-500" : "border-gray-300"} rounded-md cursor-pointer ${isSelected ? "bg-gray-200" : ""}`}
+                            >
+                              <span className="text-xs lg:text-sm ">
+                                {option.icon}
+                              </span>
+                              <span className="text-xs lg:text-sm ">
+                                {option.label}
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* Date */}
+                    <div className="w-full flex flex-col md:flex-row gap-3 lg:gap-6">
+                      <div className="flex-1">
+                        <SelectCalender
+                          label="Date"
+                          placeholder="Select date"
+                          required={true}
+                          value={formData.meetingDetails.meetingDate}
+                          onChange={(date) =>
+                            updateFormData(
+                              "meetingDetails",
+                              "meetingDate",
+                              date,
+                            )
+                          }
+                          error={emptyErrors.meetingDate}
+                        />
+                      </div>
+                      <div className="w-full lg:w-40">
                         <Select
-                          label="Estimated Budget"
-                          value={formData.projectDetails.projectBudget}
-                          onChange={(value) =>
+                          label="Time"
+                          value={formData.meetingDetails.meetingTime}
+                          onChange={(time) =>
                             updateFormData(
-                              "projectDetails",
-                              "projectBudget",
-                              value,
+                              "meetingDetails",
+                              "meetingTime",
+                              time,
                             )
                           }
-                          options={budgetOptions}
-                          placeholder="Select project type"
+                          options={timeOptions}
+                          placeholder="Select time"
                           required={true}
-                          icon={FiDollarSign}
-                          error={emptyErrors.projectBudget}
-                        />
-
-                        <Input
-                          label="Project ZIP Code"
-                          name="zipCode"
-                          type="text"
-                          value={formData.projectDetails.projectZipCode}
-                          onChange={(value) =>
-                            updateFormData(
-                              "projectDetails",
-                              "projectZipCode",
-                              value,
-                            )
-                          }
-                          placeholder="12345"
-                          icon={FiMapPin}
-                          required={true}
-                          error={emptyErrors.projectZipCode}
+                          icon={FiClock}
+                          error={emptyErrors.meetingTime}
                         />
                       </div>
                     </div>
-                  )}
+                  </div>
+                )}
+              </div>
 
-                  {/* Schedule */}
-                  {step === 2 && (
-                    <div className="space-y-6">
-                      {/* Meeting method */}
-                      <div className="space-y-1">
-                        <label className="font-bold text-xs lg:text-sm block">
-                          <span>Consultation Type</span>
-                          <span className="text-red-600 ms-1">*</span>
-                        </label>
-
-                        <div className="flex-center-between gap-3">
-                          {consultationMethod.map((option, index) => {
-                            const isSelected =
-                              option.value ===
-                              formData.meetingDetails.meetingMethod;
-
-                            return (
-                              <button
-                                key={index}
-                                onClick={() =>
-                                  updateFormData(
-                                    "meetingDetails",
-                                    "meetingMethod",
-                                    option.value,
-                                  )
-                                }
-                                className={`flex-center w-full gap-3 px-2 lg:px-8 py-3 border ${emptyErrors.meetingMethod ? "border-red-500" : "border-gray-300"} rounded-md cursor-pointer ${isSelected ? "bg-gray-200" : ""}`}
-                              >
-                                <span className="text-xs lg:text-sm ">
-                                  {option.icon}
-                                </span>
-                                <span className="text-xs lg:text-sm ">
-                                  {option.label}
-                                </span>
-                              </button>
-                            );
-                          })}
-                        </div>
-                      </div>
-
-                      {/* Date */}
-                      <div className="flex flex-col md:flex-row gap-3 lg:gap-6">
-                        <div className="w-2/3">
-                          <SelectCalender
-                            label="Date"
-                            placeholder="Select date"
-                            required={true}
-                            value={formData.meetingDetails.meetingDate}
-                            onChange={(date) =>
-                              updateFormData(
-                                "meetingDetails",
-                                "meetingDate",
-                                date,
-                              )
-                            }
-                            error={emptyErrors.meetingDate}
-                          />
-                        </div>
-                        <div className="flex-1">
-                          <Select
-                            label="Time"
-                            value={formData.meetingDetails.meetingTime}
-                            onChange={(time) =>
-                              updateFormData(
-                                "meetingDetails",
-                                "meetingTime",
-                                time,
-                              )
-                            }
-                            options={timeOptions}
-                            placeholder="Select time"
-                            required={true}
-                            icon={FiClock}
-                            error={emptyErrors.meetingTime}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Button area */}
-                <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-2 lg:gap-0">
-                  {step > 0 ? (
-                    <PrimaryButton
-                      btnName="Back"
-                      variant="gray"
-                      onClick={backStep}
-                    />
-                  ) : (
-                    <div className="flex gap-2">
-                      <span className="text-xs">
-                        <FiLock />
-                      </span>
-                      <span className="text-xs w-full max-w-54">
-                        Your information is kept private and will only be used
-                        to contact you.
-                      </span>
-                    </div>
-                  )}
-
+              {/* Button area */}
+              <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-2 lg:gap-0">
+                {step > 0 ? (
                   <PrimaryButton
-                    btnName={step === 2 ? "Book Consultation" : "Next"}
-                    variant="black"
-                    onClick={nextStep}
+                    btnName="Back"
+                    variant="gray"
+                    onClick={backStep}
                   />
-                </div>
+                ) : (
+                  <div className="flex gap-2">
+                    <span className="text-xs">
+                      <FiLock />
+                    </span>
+                    <span className="text-xs w-full max-w-54">
+                      Your information is kept private and will only be used to
+                      contact you.
+                    </span>
+                  </div>
+                )}
+
+                <PrimaryButton
+                  btnName={step === 2 ? "Book Consultation" : "Next"}
+                  variant="black"
+                  onClick={nextStep}
+                />
               </div>
             </div>
           </div>

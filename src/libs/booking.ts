@@ -39,3 +39,6 @@ export const bookings:BookingType[] = [
     status: "rejected",
   },
 ];
+
+
+
