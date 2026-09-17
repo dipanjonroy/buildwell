@@ -9,10 +9,12 @@ export default function DashboardLayout({
   return (
     <main className="w-full h-dvh">
       <div className="w-full h-full flex">
-        <Navigation/>
-        <div className="min-w-0 flex-1 h-full">
-          <Header/>
-          {children}
+        <Navigation />
+        <div className="min-w-0 flex-1 h-full helper-bg">
+          <Header />
+          <div className="w-full h-[calc(100dvh-64px)] overflow-hidden">
+            <div className="w-full h-full overflow-y-auto" data-lenis-prevent>{children}</div>
+          </div>
         </div>
       </div>
     </main>

@@ -1,7 +1,6 @@
 "use client";
 
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-
 import {
   eachDayOfInterval,
   endOfMonth,
@@ -16,14 +15,27 @@ import {
   endOfWeek,
 } from "date-fns";
 import { useState } from "react";
+import { BookingType } from "@/libs/booking";
 
 type CalenderType = {
   value?: Date | null;
   onChange?: (date: Date) => void;
+  bookings?: BookingType[];
+  dayClass?:string;
+  weekClass?:string;
 };
 
-export default function Calender({ value, onChange }: CalenderType) {
-  const [currentMonth, setCurrentMonth] = useState<Date>(value || new Date());
+export default function Calender({
+  value,
+  onChange,
+  bookings = [],
+  dayClass,
+  weekClass,
+}: CalenderType) {
+  const [currentMonth, setCurrentMonth] = useState<Date>(
+    value || new Date(),
+  );
+
   const selectedDate = value;
 
   const nextMonth = () => {
@@ -37,24 +49,25 @@ export default function Calender({ value, onChange }: CalenderType) {
   const monthStart = startOfMonth(currentMonth);
   const monthEnd = endOfMonth(currentMonth);
 
-  const calenderStart = startOfWeek(monthStart, {
+  const calendarStart = startOfWeek(monthStart, {
     weekStartsOn: 1,
   });
-  const calenderEnd = endOfWeek(monthEnd, {
+
+  const calendarEnd = endOfWeek(monthEnd, {
     weekStartsOn: 1,
   });
 
   const days = eachDayOfInterval({
-    start: calenderStart,
-    end: calenderEnd,
+    start: calendarStart,
+    end: calendarEnd,
   });
 
-  const handleDateClick = (date:Date)=>{
-    onChange?.(date)
-  }
+  const handleDateClick = (date: Date) => {
+    onChange?.(date);
+  };
 
   return (
-    <div className="w-full max-w-sm white-bg border border-gray-200 rounded-md shadow-lg p-3">
+    <div className="w-full white-bg border border-gray-200 rounded-md p-3">
       {/* Header */}
       <div className="flex-center-between mb-3">
         <button onClick={prevMonth} className="cursor-pointer">
@@ -71,7 +84,7 @@ export default function Calender({ value, onChange }: CalenderType) {
       </div>
 
       {/* Weeks */}
-      <div className="grid grid-cols-7 black-bg border rounded-tl-lg rounded-tr-lg black-border white-text text-sm py-1">
+      <div className={`grid grid-cols-7 ${weekClass}`}>
         {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
           <div key={day} className="flex-center">
             {day}
@@ -80,20 +93,53 @@ export default function Calender({ value, onChange }: CalenderType) {
       </div>
 
       {/* Days */}
-      <div className="grid grid-cols-7 border border-gray-200 rounded-bl-lg rounded-br-lg">
+      <div className={`grid grid-cols-7 content-center ${dayClass}`}>
         {days.map((date) => {
           const outsideMonth = !isSameMonth(date, currentMonth);
-          const selected = selectedDate && isSameDay(date, selectedDate);
+          const selected =
+            selectedDate && isSameDay(date, selectedDate);
           const today = isToday(date);
+
+          const dayBooking = bookings.filter((booking) =>
+            isSameDay(new Date(booking.date), date),
+          );
 
           return (
             <button
               key={date.toISOString()}
               disabled={outsideMonth}
-              onClick={()=>handleDateClick(date)}
-              className={`p-1 text-sm flex-center w-8 h-8 ${outsideMonth ? "text-gray-300" : today ? "black-text border black-border rounded-md" : selected ? "black-bg white-text rounded-md" : "cursor-pointer text-gray-500 hover:black-text hover:font-bold"}`}
+              onClick={() => handleDateClick(date)}
+              className={`relative p-1 text-sm flex-center w-full ${
+                outsideMonth
+                  ? "text-gray-300"
+                  : today
+                    ? "black-text border black-border rounded-md"
+                    : selected
+                      ? "black-bg white-text rounded-md"
+                      : "cursor-pointer text-gray-500 hover:black-text hover:font-bold"
+              }`}
             >
-              {format(date, "d")}
+              <span>{format(date, "d")}</span>
+
+              {/* Booking activity */}
+              {!outsideMonth && dayBooking.length > 0 && (
+                <div className="absolute -bottom-1 flex gap-1">
+                  {dayBooking.slice(0, 3).map((booking) => (
+                    <span
+                      key={booking.id}
+                      className={`w-1.5 h-1.5 rounded-full ${
+                        booking.status === "confirmed"
+                          ? "bg-emerald-500"
+                          : booking.status === "pending"
+                            ? "bg-blue-500"
+                            : booking.status === "rejected"
+                              ? "bg-red-500"
+                              : "bg-orange-500"
+                      }`}
+                    />
+                  ))}
+                </div>
+              )}
             </button>
           );
         })}

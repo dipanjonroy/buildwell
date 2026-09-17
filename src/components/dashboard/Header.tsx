@@ -15,7 +15,7 @@ export default function Header() {
   const activePage = dashboardMenus.find((menu) => menu.url === pathName);
 
   return (
-    <div className="w-full h-16 border-b border-gray-400 px-3 lg:px-6 py-3">
+    <div className="w-full h-16 border-b border-gray-300 px-3 lg:px-6 py-3 white-bg">
       <div className="flex-center-between">
         <div className="flex items-center gap-2">
           <button

@@ -9,7 +9,7 @@ import { Metadata } from "next";
 const interFont = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "600"],
+  weight: ["400","500", "600"],
 });
 
 const manropeFont = Manrope({
