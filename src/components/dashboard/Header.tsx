@@ -17,11 +17,11 @@ export default function Header() {
   return (
     <div className="w-full h-16 border-b border-gray-300 px-3 lg:px-6 py-3 white-bg">
       <div className="flex-center-between">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-5">
           <button
             type="button"
             onClick={openMenu}
-            className={`flex-center md:hidden p-1.5 border border-gray-300 cursor-pointer`}
+            className={`flex-center lg:hidden p-1.5 border border-gray-300 cursor-pointer`}
           >
             <MdMenu size={24} />
           </button>

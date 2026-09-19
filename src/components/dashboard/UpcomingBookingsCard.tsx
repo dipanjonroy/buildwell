@@ -13,7 +13,7 @@ export default function UpcomingBookingsCard() {
   return (
     <div className="w-full p-6 white-bg border border-gray-300 rounded-xl">
       <div className="flex-center-between mb-4">
-        <h4 className="font-bold tracking-tight text-lg">Upcoming Bookings</h4>
+        <h4 className="font-bold text-lg">Upcoming Bookings</h4>
         <ViewAllBtn btnName="View all" url="/dashboard/bookings" />
       </div>
 
@@ -25,9 +25,9 @@ export default function UpcomingBookingsCard() {
               key={idx}
               className={`${lastItem ? "" : "border-b border-gray-200"} py-1.5`}
             >
-              <div className="grid grid-cols-[62px_32px_1fr_auto_32px_20px] items-center gap-10">
+              <div className="flex items-center gap-3">
                 {/* Date */}
-                <div className="flex flex-col items-center justify-center bg-gray-100 rounded-xl tracking-tight w-16 h-17">
+                <div className="flex flex-col items-center justify-center bg-gray-100 rounded-xl tracking-tights size-12 h-17 shrink-0">
                   <span className="uppercase text-xs text-gray-500 font-medium">
                     sep
                   </span>
@@ -38,37 +38,43 @@ export default function UpcomingBookingsCard() {
                 </div>
 
                 {/* Calender Icon */}
-                <FiCalendar size={22} />
+                <div className="sm:size-12 md:size-8 xl:size-12 shink-0 flex items-center justify-center text-xl">
+                  <FiCalendar aria-hidden />
+                </div>
 
                 {/* Booking Information */}
-                <div className="min-w-0 tracking-tight flex flex-col">
-                  <span className="text-xs text-gray-500">09:00 AM</span>
-                  <span className="text-sm font-bold capitalize">
-                    Sarah Wilson
-                  </span>
-                  <span className="text-xs text-gray-500 capitalize">
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs text-gray-500">09:00 AM</p>
+                  <p className="text-sm font-bold capitalize">Sarah Wilson</p>
+                  <p className="text-xs text-gray-500 capitalize">
                     kitchen renovation
-                  </span>
+                  </p>
                 </div>
 
                 {/* Status */}
-                <span
-                  className={`capitalize text-xs font-semibold px-4 py-1 rounded-full ${statusStyles["confirmed"]}`}
-                >
-                  Confirmed
-                </span>
+                <div className="sm:w-30 lg:w-auto">
+                  <span
+                    className={`capitalize text-xs font-semibold px-4 py-1 rounded-full ${statusStyles["confirmed"]}`}
+                  >
+                    Confirmed
+                  </span>
+                </div>
 
                 {/* Button */}
                 <Link
                   href="/"
-                  className="flex-center w-8 h-8 rounded-full hover:bg-gray-100 transition-colors duration-300"
+                  className="hidden lg:flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 transition-colors duration-300"
+                  aria-label="View booking button"
                 >
-                  <FiArrowRight />
+                  <FiArrowRight aria-hidden />
                 </Link>
 
                 {/* Action Button */}
-                <button className="cursor-pointer flex-center w-8 h-8 rounded-full hover:bg-gray-100 transition-colors duration-300">
-                  <HiOutlineDotsVertical />
+                <button
+                  className="hidden lg:flex items-center justify-center cursor-pointer  w-8 h-8 rounded-full hover:bg-gray-100 transition-colors duration-300"
+                  aria-label="Booking action button"
+                >
+                  <HiOutlineDotsVertical aria-hidden />
                 </button>
               </div>
             </div>

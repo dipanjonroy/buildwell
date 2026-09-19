@@ -1,5 +1,9 @@
 import DashboardCalender from "@/components/dashboard/DashboardCalender";
+import QuickActionCard from "@/components/dashboard/QuickActionCard";
+import QuoteRequestCard from "@/components/dashboard/QuoteRequestCard";
+import RecentProjectsCard from "@/components/dashboard/RecentProjectsCard";
 import StatCard from "@/components/dashboard/StatCard";
+import TeamMembersCard from "@/components/dashboard/TeamMembersCard";
 import UpcomingBookingsCard from "@/components/dashboard/UpcomingBookingsCard";
 import {
   FiCalendar,
@@ -30,31 +34,29 @@ export default function page() {
   });
 
   return (
-    <div className="p-6 flex gap-8">
+    <div className="p-6 flex flex-col 2xl:flex-row gap-5">
       {/* Left */}
       <div className="flex-3 min-w-0">
         {/* Greetings */}
-        <div className="flex justify-between mb-8 mt-2">
-          <div>
-            <h3 className="font-semibold tracking-tight text-xl">
-              {greeting}, Dipanjon!
-            </h3>
-            <p className="text-xs tracking-tight text-gray-500">
+        <div className="flex flex-col md:flex-row md:justify-between gap-2 mb-8 mt-2">
+          <div className="w-full">
+            <h3 className="font-semibold text-xl">{greeting}, Dipanjon!</h3>
+            <p className="text-xs text-gray-500">
               Here&apos;s what&apos;s happening with your business today.
             </p>
           </div>
 
-          <div className="text-gray-500 font-semibold flex items-center gap-3">
+          <div className="text-gray-500 font-semibold flex items-center gap-3 shrink-0">
             <FiCalendar size={18} />
             <span className="text-xs">{formattedDate}</span>
           </div>
         </div>
 
         {/* Short info */}
-        <div className="grid grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
           <StatCard
-            icon= {FiCalendar}
-            label= "Total Bookings"
+            icon={FiCalendar}
+            label="Total Bookings"
             number={28}
             trend="up"
             change={12}
@@ -62,8 +64,8 @@ export default function page() {
           />
 
           <StatCard
-            icon= {FiUser}
-            label= "New Quote Requests"
+            icon={FiUser}
+            label="New Quote Requests"
             number={14}
             trend="up"
             change={27}
@@ -71,8 +73,8 @@ export default function page() {
           />
 
           <StatCard
-            icon= {FiFolder}
-            label= "Projects"
+            icon={FiFolder}
+            label="Projects"
             number={6}
             trend="up"
             change={20}
@@ -80,8 +82,8 @@ export default function page() {
           />
 
           <StatCard
-            icon= {FiMessageSquare}
-            label= "Testimonials"
+            icon={FiMessageSquare}
+            label="Testimonials"
             number={8}
             trend="up"
             change={33}
@@ -89,8 +91,8 @@ export default function page() {
           />
 
           <StatCard
-            icon= {FiUsers}
-            label= "Team Members"
+            icon={FiUsers}
+            label="Team Members"
             number={4}
             trend="equal"
             change={0}
@@ -98,19 +100,30 @@ export default function page() {
           />
         </div>
 
-        <div className="flex gap-4 mt-4">
+        <div className="flex flex-col md:flex-row gap-4 mt-4">
           {/* Upcoming Bookings */}
           <div className="min-w-0 flex-4">
-            <UpcomingBookingsCard/>
+            <UpcomingBookingsCard />
           </div>
           <div className="min-w-0 flex-3">
-            <DashboardCalender/>
+            <DashboardCalender />
           </div>
+        </div>
+
+        {/* recent projects */}
+        <div className="w-full mt-4">
+          <RecentProjectsCard />
         </div>
       </div>
 
       {/* Right */}
-      <div className="min-w-0 flex-1">Right</div>
+      <div className="min-w-0 flex-1 space-y-5">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-1 gap-4">
+          <QuickActionCard />
+          <QuoteRequestCard />
+          <TeamMembersCard />
+        </div>
+      </div>
     </div>
   );
 }

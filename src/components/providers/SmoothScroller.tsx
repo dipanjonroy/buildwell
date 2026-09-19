@@ -25,11 +25,11 @@ const LenisScrollReset = () => {
       document.body.style.overflow = "hidden";
     } else {
       lenis?.start();
-      document.body.style.overflow = "";
+      document.body.style.overflow = "auto";
     }
 
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = "auto";
     };
   }, [lenis, isModalOpen,isAlertOpen]);
 
